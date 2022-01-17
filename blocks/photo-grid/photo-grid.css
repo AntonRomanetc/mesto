@@ -1,0 +1,12 @@
+.photo-grid {
+    margin: 0 auto;
+    padding-bottom: 66px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 890px) {
+    .photo-grid {
+        padding-bottom: 48px;
+    }
+}

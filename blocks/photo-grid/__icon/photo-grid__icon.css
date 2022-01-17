@@ -1,0 +1,10 @@
+.photo-grid__icon {
+    background-image: url(../../../images/Heart.svg);
+    background-size: 22px 19px;
+    min-width: 22px;
+    min-height: 19px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
