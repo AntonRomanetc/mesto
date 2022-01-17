@@ -11,12 +11,80 @@
         <header class="header">
             <img class="header__logo" src="./images/header-logo.svg" alt="логотип"/>
         </header>
-        <main>
-
+        <main class="main">
+          <section class="profile">
+            <img class="profile__image" src="./images/Avatar.jpg" alt="Аватар">
+            <div class="profile__info">
+              <div class="profile__title">
+                  <h1 class="profile__name">Жак-Ив Кусто</h1>
+                  <button type="button" class="profile__edit-button"></button>
+              </div>
+              <p class="profile__text">Исследователь Океана</p>
+            </div>
+            <button type="button" class="profile__add-button"></button>
+          </section>
+          <section class="photo-grid">
+            <ul class="photo-grid__items">
+              <li class="photo-grid__item">
+                <img class="photo-grid__image" src="./images/Karachaevsk.jpg" alt="Карачаевск">
+                <div class="photo-grid__info">
+                  <h2 class="photo-grid__title">Карачаевск</h2>
+                  <button type="button" class="photo-grid__icon"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img class="photo-grid__image" src="./images/Elbrus1.jpg" alt="Гора Эльбрус">
+                <div class="photo-grid__info">
+                  <h2 class="photo-grid__title">Гора Эльбрус</h2>
+                  <button type="button" class="photo-grid__icon"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img class="photo-grid__image" src="./images/Dombai1.jpg" alt="Домбай">
+                <div class="photo-grid__info">
+                  <h2 class="photo-grid__title">Домбай</h2>
+                  <button type="button" class="photo-grid__icon"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img class="photo-grid__image" src="./images/Elbrus1.jpg" alt="Гора Эльбрус">
+                <div class="photo-grid__info">
+                  <h2 class="photo-grid__title">Гора Эльбрус</h2>
+                  <button type="button" class="photo-grid__icon"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img class="photo-grid__image" src="./images/Dombai1.jpg" alt="Домбай">
+                <div class="photo-grid__info">
+                  <h2 class="photo-grid__title">Домбай</h2>
+                  <button type="button" class="photo-grid__icon"></button>
+                </div>
+              </li>
+              <li class="photo-grid__item">
+                <img class="photo-grid__image" src="./images/Karachaevsk.jpg" alt="Карачаево-Ч...">
+                <div class="photo-grid__info">
+                  <h2 class="photo-grid__title">Карачаево-Черкесия</h2>
+                  <button type="button" class="photo-grid__icon"></button>
+                </div>
+              </li>
+            </ul>
+          </section>
         </main>
         <footer class="footer">
-            
+            <p class="footer__copyrights">&copy; 2020 Mesto Russia</p>
         </footer>
+        <section class="pop-up">
+          <div class="pop-up__container pop-up__opened">
+            <button class="pop-up__close-button" type="button"></button>
+            <h2 class="pop-up__title">Редактировать профиль</h2>
+              <form class="pop-up__form">
+                  <input class="pop-up__text-input"  type="text" name="name" id="name-input" value="Жак-Ив Кусто">
+                  <input class="pop-up__text-input" type="text" name="info" id="info-input" value="Исследователь океана">
+                  <button class="pop-up__submit-button" type="submit" name="submit" id="submit" value="Сохранить"></button>
+              </form>
+          </div>
+        </section>
   </div>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>
