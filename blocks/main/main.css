@@ -1,6 +1,6 @@
 .main {
     max-width: 880px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 890px) {
