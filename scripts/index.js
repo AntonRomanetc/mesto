@@ -8,8 +8,8 @@ let formName = document.querySelector(".pop-up__name");
 let formAbout = document.querySelector(".pop-up__about");
 
 function modalToggler() {
-  formModal.classList.toggle("pop-up_opened");
-}
+  formModal.classList.toggle("pop-up_opened")
+};
 
 openButton.addEventListener("click", () => {
   modalToggler()
