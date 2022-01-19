@@ -1,16 +1,19 @@
 .pop-up__text-input {
-    margin: 0 36px 30px;
+    margin: 0 36px 0;
+    padding-bottom: 13px;
     width: 358px;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    color: rgba(0, 0, 0, 1);
-    border: 1px solid rgba(0, 0, 0, 0);
+    border: none;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
-    background-position: bottom;
-    box-sizing: border-box;
 }
 
-.pop-up__text-input:last-of-type {
-    margin-bottom: 48px;
+@media screen and (max-width: 890px) {
+    .pop-up__text-input {
+        width: 238px;
+        margin: 0 22px 0;
+        font-size: 14px;
+        line-height: 17px;
+    }
 }
