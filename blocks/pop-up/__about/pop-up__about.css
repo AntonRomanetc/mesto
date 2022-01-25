@@ -1,3 +1,9 @@
 .pop-up__about {
     margin-bottom: 48px;
 }
+
+@media screen and (max-width: 890px) {
+    .pop-up__about {
+        margin-bottom: 45px;
+    }
+}
