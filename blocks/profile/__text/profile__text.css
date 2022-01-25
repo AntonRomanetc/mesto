@@ -3,8 +3,15 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    max-width: 350px;
+    max-width: 250px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    padding-top: 16px;
+}
+
+@media screen and (max-width: 890px) {
+    .profile__text {
+        padding-top: 14px;
+    }
 }
