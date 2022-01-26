@@ -4,8 +4,8 @@ let openButton = document.querySelector('.profile__edit-button');
 let closeButton = document.querySelector('.pop-up__close-button');
 let profileName = document.querySelector('.profile__name');
 let profileText = document.querySelector('.profile__text');
-let formName = document.querySelector('.pop-up__text-input_name');
-let formAbout = document.querySelector('.pop-up__text-input_about');
+let formName = document.querySelector('.pop-up__text-input_text_name');
+let formAbout = document.querySelector('.pop-up__text-input_text_about');
 
 function modalToggler() {
   formModal.classList.toggle('pop-up_opened')

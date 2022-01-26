@@ -8,3 +8,7 @@
     border: none;
     cursor: pointer;
 }
+
+.photo-grid__icon:hover {
+    opacity: .6;
+}

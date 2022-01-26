@@ -8,11 +8,15 @@
     white-space: nowrap;
     overflow: hidden;
     padding-top: 16px;
+    
 }
 
 @media screen and (max-width: 890px) {
     .profile__text {
-        padding-top: 14px;
+        font-size: 14px;
+        line-height: 17px;
+        padding-top: 8px;
         max-width: 250px;
+        text-align: center;
     }
 }
