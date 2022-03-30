@@ -1,0 +1,3 @@
+.popup__form {
+    transition: visibility .3s ease,opacity .3s linear;
+}

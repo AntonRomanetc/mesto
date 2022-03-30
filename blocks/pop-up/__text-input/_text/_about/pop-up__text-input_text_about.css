@@ -1,9 +1,0 @@
-.pop-up__text-input_text_about {
-    margin-bottom: 48px;
-}
-
-@media screen and (max-width: 890px) {
-    .pop-up__text-input_text_about {
-        margin-bottom: 45px;
-    }
-}
