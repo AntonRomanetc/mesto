@@ -15,10 +15,11 @@
     border: none;
     cursor: pointer;
     transition: opacity 0.2s ease-in;
-  }
+}
+
 .popup__submit-button:hover {
     opacity: 0.8;
-  }
+}
   
 @media screen and (max-width: 550px) {
   .popup__submit-button {

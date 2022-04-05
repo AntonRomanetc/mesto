@@ -1,5 +1,4 @@
-
-  .element__description {
+.element__description {
     display: flex;
     flex-direction: column;
     position: relative;

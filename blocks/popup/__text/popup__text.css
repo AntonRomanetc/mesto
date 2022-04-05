@@ -13,13 +13,12 @@
     outline: none;
   }
   
-  .popup__text:last-of-type {
+.popup__text:last-of-type {
     margin: 0;
     margin-left: 36px;
     margin-bottom: 48px;
   }
-  
-  
+
 @media screen and (max-width: 550px) {
   .popup__text {
     width: 238px;
