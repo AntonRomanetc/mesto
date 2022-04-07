@@ -18,9 +18,9 @@ const initialCardsElement = document.querySelector('.element');
 const cardsElement = elementTemplate.cloneNode(true);
 cardsElement.querySelector('.element__title').textContent;
 cardsElement.querySelector('.element__image').href;
-const cardFoto = document.querySelector('.card');
-const popupCardImage = document.querySelector('.card__foto');
-const popupCardTitle = document.querySelector('.card__caption');
+const cardFoto = document.querySelector('.card-popup');
+const popupCardImage = document.querySelector('.card-popup__foto');
+const popupCardTitle = document.querySelector('.card-popup__caption');
 const cardCloseButton = document.querySelector('#card-close');
 const popupAddSave = popupAdd.querySelector('.popup__submit-button');
 

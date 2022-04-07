@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./pages/index.css">
     <title>Место</title>
   </head>
-  <body>
+  <body class="body">
     <div class="page">
       <header class="header">
         <a class="header__logo"></a>
@@ -36,7 +36,6 @@
           <form class="popup__form popup__form-edit-profile" action="#" name="popup-edit">
             <input class="popup__text popup__text_name" type="text" placeholder="Имя" name="name" 
                    value="Жак-Ив Кусто" id="name-input">
-            <span class="popup__text-error" id="name-input-error"></span>
             <input class="popup__text popup__text_job" type="text" placeholder="Описание" name="description" 
                    value="Исследователь океана" id="job-input">
             <button type="submit" class="popup__submit-button" aria-label="Сохранить">Сохранить</button>
@@ -56,11 +55,11 @@
           </form>
         </div>
       </section>
-      <div class="card">
-        <div class="card__content">
-          <img class="card__foto" src="#" alt="#">
-          <p class="card__caption"></p>
-          <button class="card__button" aria-label="Закрыть" type="button" id="card-close"></button>
+      <div class="popup card-popup">
+        <div class="card-popup__content">
+          <img class="card-popup__foto" src="#" alt="#">
+          <p class="card-popup__caption"></p>
+          <button class="popup__close-button" aria-label="Закрыть" type="button" id="card-close"></button>
         </div>
       </div>
     </div>
