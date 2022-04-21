@@ -26,10 +26,12 @@ const popupAddSave = popupAdd.querySelector('.popup__submit-button');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener("keydown", closeEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener("keydown", closeEsc);
 }
 
 buttonProfileEdit.addEventListener('click', function (event) {
@@ -76,6 +78,8 @@ function createCard(name, link) {
   cardImage
     .addEventListener('click', openFoto);
     cardImage.addEventListener('click', () => openFoto(name, link)); 
+    popupAddSave.classList.add("popup__submit-button_disabled");
+    popupAddSave.setAttribute("disabled", true);
     return cardsElement;
 }
 function addCard(newCard) {
@@ -104,4 +108,25 @@ function openFoto(name, link) {
 }
 cardCloseButton.addEventListener('click', function () {
   closePopup(cardFoto);
+});
+
+function closeEsc(evt) {
+  if(evt.key === 'Escape'){
+    closePopup(document.querySelector('.popup_opened'));
+    }
+    
+}
+
+const popups = [...document.querySelectorAll(".popup")];
+
+popups.forEach((popup) => {
+  popup.addEventListener("click", (evt) => {
+    if (
+      evt.target.classList.contains("popup_opened") ||
+      evt.target.classList.contains(".popup__close-edit-button")
+    ) {
+      closePopup(popup);
+  
+    }
+  });
 });
