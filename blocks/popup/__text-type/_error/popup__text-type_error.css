@@ -2,3 +2,7 @@
     border-bottom: 1px solid red;
     margin-bottom: 0;
 }
+
+.popup__text-type_error:last-of-type {
+    margin-bottom: 0;
+}

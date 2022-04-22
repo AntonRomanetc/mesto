@@ -1,4 +1,22 @@
 .popup__text-error_active {
     opacity: 1;
     padding-top: 5px;
+    padding-bottom: 13px;
 }
+
+.popup__text-error_active:last-of-type {
+    padding-bottom: 31px;
+}
+
+@media screen and (max-width: 550px) {
+    .popup__text-error_active {
+      width: 238px;
+      margin-left: 22px;
+    }
+  }
+    
+  @media screen and (max-width: 550px) {
+    .popup__text-error_active {
+      margin-left: 22px;
+    }
+  }
