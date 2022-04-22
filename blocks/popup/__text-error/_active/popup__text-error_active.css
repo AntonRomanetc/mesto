@@ -1,11 +1,9 @@
 .popup__text-error_active {
     opacity: 1;
-    padding-top: 5px;
-    padding-bottom: 13px;
 }
 
 .popup__text-error_active:last-of-type {
-    padding-bottom: 31px;
+    padding-bottom: 0px;
 }
 
 @media screen and (max-width: 550px) {

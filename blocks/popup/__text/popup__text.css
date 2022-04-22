@@ -4,7 +4,7 @@
     font-size: 14px;
     line-height: 17px;
     color: #000000;
-    margin: 54px 36px 30px;
+    margin: 54px 36px 0;
     width: 358px;
     height: 27px;
     border: 0;
@@ -15,7 +15,6 @@
   
 .popup__text:last-of-type {
     margin: 0;
-    margin-bottom: 48px;
     margin-left: 36px;
   }
 
