@@ -9,17 +9,13 @@ const formsValidationConfig = {
   
   function enableValidation(data) {
     const forms = [...document.querySelectorAll(data.formSelector)];
-  
     forms.forEach((form) => {
       form.addEventListener("submit", (evt) => {
         evt.preventDefault();
       });
-  
       setEventListeners(form, data);
-      
     });
   }
-  
   
   function handleField(form, input, config) {
     if (input.validity.valid) {
@@ -32,22 +28,16 @@ const formsValidationConfig = {
   function showError(form, input, errorMessage, config) {
     const errorElement = form.querySelector(`#${input.id}-error`);
     input.classList.add(config.inputErrorClass);
-  
     errorElement.textContent = errorMessage;
-  
     errorElement.classList.add(config.errorClass);
   }
   
   function hideError(form, input, config) {
     const errorElement = form.querySelector(`#${input.id}-error`);
-  
     input.classList.remove(config.inputErrorClass);
-  
     errorElement.classList.remove(config.errorClass);
-  
     errorElement.textContent = "";
   }
-  
   
   function hasInvalidInput(inputList) {
     return inputList.some((inputElement) => {
@@ -55,32 +45,22 @@ const formsValidationConfig = {
     });
   }
   
-  
   function toggleButtonState(inputList, buttonElement, object) {
     if (hasInvalidInput(inputList)) {
-     
-      buttonElement.classList.add(object.inactiveButtonClass); 
-  
+      buttonElement.classList.add(object.inactiveButtonClass);
       buttonElement.disabled = true; 
     } else {
-      
       buttonElement.classList.remove(object.inactiveButtonClass); 
-  
       buttonElement.disabled = false; 
     }
   }
   
   function setEventListeners(formElement, object) {
-    
     const inputList = Array.from(
       formElement.querySelectorAll(object.inputSelector)
     );
-  
-    
     const buttonElement = formElement.querySelector(object.submitButtonSelector);
-   
     toggleButtonState(inputList, buttonElement, object);
-   
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", function () {
         handleField(formElement, inputElement, object);

@@ -39,20 +39,24 @@ buttonProfileEdit.addEventListener('click', function (event) {
   formDescriptionInput.value = profileDescription.textContent;
   openPopup(popupProfileEdit);
 });
+
 buttonCloseEditProfile.addEventListener('click', function () {
   closePopup(popupProfileEdit);
 });
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = formNameInput.value;
   profileDescription.textContent = formDescriptionInput.value;
   closePopup(popupProfileEdit);
 }
+
 formProfileEdit.addEventListener('submit', handleProfileFormSubmit);
 
 buttonCardEdit.addEventListener('click', function (event) {
   openPopup(popupAdd);
 });
+
 buttonCloseAddCard.addEventListener('click', function () {
   closePopup(popupAdd);
 });
@@ -75,6 +79,7 @@ function createCard(name, link) {
     .addEventListener('click', (evt) => {
       evt.target.closest('.element__description').remove();
     });
+
   cardImage
     .addEventListener('click', openFoto);
     cardImage.addEventListener('click', () => openFoto(name, link)); 
@@ -82,13 +87,16 @@ function createCard(name, link) {
     popupAddSave.setAttribute("disabled", true);
     return cardsElement;
 }
+
 function addCard(newCard) {
   initialCardsElement.prepend(newCard);
 }
+
 initialCards.forEach((item) => {
   const newCard = createCard(item.name, item.link);
   addCard(newCard);
 });
+
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const name = formTitleInput.value;
@@ -98,14 +106,15 @@ function handleCardFormSubmit(evt) {
   popupAddCard.reset();
   closePopup(popupAdd);
 }
-popupAdd.addEventListener('submit', handleCardFormSubmit);
 
+popupAdd.addEventListener('submit', handleCardFormSubmit);
 function openFoto(name, link) {
   openPopup(cardFoto);
   popupCardImage.src = link;
   popupCardTitle.textContent = name;
   popupCardImage.alt = name;
 }
+
 cardCloseButton.addEventListener('click', function () {
   closePopup(cardFoto);
 });
@@ -114,7 +123,6 @@ function closeEsc(evt) {
   if(evt.key === 'Escape'){
     closePopup(document.querySelector('.popup_opened'));
     }
-    
 }
 
 const popups = [...document.querySelectorAll(".popup")];
