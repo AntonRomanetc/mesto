@@ -99,8 +99,9 @@ function handleCardFormSubmit(evt) {
   const newCard = createCard(name, link)
   addCard(newCard);
   closePopup(popupAdd);
-  popupAddCard.reset();   
-  popupAddSave.classList.add('popup__submit-button_disabled');
+  popupAddCard.reset();
+  popupAddSave.classList.add("popup__submit-button_disabled");
+  popupAddSave.setAttribute("disabled", true);
 }
 
 popupAdd.addEventListener('submit', handleCardFormSubmit);
