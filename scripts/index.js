@@ -99,12 +99,13 @@ function handleCardFormSubmit(evt) {
   const newCard = createCard(name, link)
   addCard(newCard);
   closePopup(popupAdd);
-  popupAddCard.reset();
-  popupAddSave.classList.add("popup__submit-button_disabled");
-  popupAddSave.setAttribute("disabled", true);
+  popupAddSave.setAttribute('disabled', true);
+  popupAddSave.classList.add(formsValidationConfig.inactiveButtonClass);
+  popupAddCard.reset(evt.target);
 }
 
 popupAdd.addEventListener('submit', handleCardFormSubmit);
+
 function openFoto(name, link) {
   popupCardImage.src = link;
   popupCardTitle.textContent = name;
