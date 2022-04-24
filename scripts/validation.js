@@ -45,15 +45,15 @@ const formsValidationConfig = {
     });
   }
   
-  function toggleButtonState(inputList, buttonElement, object) {
+  const toggleButtonState = (inputList, buttonElement, object) => {
     if (hasInvalidInput(inputList)) {
       buttonElement.classList.add(object.inactiveButtonClass);
-      buttonElement.disabled = true; 
+      buttonElement.setAttribute = ('disabled', true);
     } else {
-      buttonElement.classList.remove(object.inactiveButtonClass); 
-      buttonElement.disabled = false; 
+      buttonElement.classList.remove(object.inactiveButtonClass);
+      buttonElement.removeAttribute = ('disabled', true); 
     }
-  }
+  };
   
   function setEventListeners(formElement, object) {
     const inputList = Array.from(

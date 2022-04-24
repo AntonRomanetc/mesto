@@ -16,8 +16,6 @@ const buttonCloseAddCard = document.querySelector('.popup__close-add-button');
 const elementTemplate = document.querySelector('#element-template').content;
 const initialCardsElement = document.querySelector('.element');
 const cardsElement = elementTemplate.cloneNode(true);
-cardsElement.querySelector('.element__title').textContent;
-cardsElement.querySelector('.element__image').href;
 const cardFoto = document.querySelector('.card-popup');
 const popupCardImage = document.querySelector('.card-popup__foto');
 const popupCardTitle = document.querySelector('.card-popup__caption');
@@ -81,10 +79,7 @@ function createCard(name, link) {
     });
 
   cardImage
-    .addEventListener('click', openFoto);
     cardImage.addEventListener('click', () => openFoto(name, link)); 
-    popupAddSave.classList.add("popup__submit-button_disabled");
-    popupAddSave.setAttribute("disabled", true);
     return cardsElement;
 }
 
@@ -103,16 +98,19 @@ function handleCardFormSubmit(evt) {
   const link = formLinkInput.value;
   const newCard = createCard(name, link)
   addCard(newCard);
-  popupAddCard.reset();
   closePopup(popupAdd);
+  popupAddCard.reset();
+  const popupAddSave = evt.target.querySelector('.popup__submit-button');     
+  popupAddSave.classList.add('popup__submit-button_disabled');
+  popupAddSave.setAttribute('disabled', true);
 }
 
 popupAdd.addEventListener('submit', handleCardFormSubmit);
 function openFoto(name, link) {
-  openPopup(cardFoto);
   popupCardImage.src = link;
   popupCardTitle.textContent = name;
   popupCardImage.alt = name;
+  openPopup(cardFoto);
 }
 
 cardCloseButton.addEventListener('click', function () {
