@@ -98,7 +98,8 @@ function handleCardFormSubmit(evt) {
   const newCard = createCard(name, link)
   addCard(newCard);
   closePopup(popupAdd);
-  popupAddSave.classList.add(formsValidationConfig.inactiveButtonClass, toggleButtonState.buttonDisabled);
+  popupAddSave.classList.add(formsValidationConfig.inactiveButtonClass);
+  buttonDisabled(popupAddSave);
   popupAddCard.reset(evt.target);
 }
 
