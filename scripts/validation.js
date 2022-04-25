@@ -52,10 +52,12 @@ const formsValidationConfig = {
       buttonElement.classList.remove(object.inactiveButtonClass); 
       buttonElement.removeAttribute('disabled', true);  
     } 
+  export {
     function buttonDisabled() {
       buttonElement.classList.add(object.inactiveButtonClass);
       buttonElement.setAttribute('disabled', true);
     }
+  }
   };
   
   function setEventListeners(formElement, object) {
