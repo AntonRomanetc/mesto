@@ -56,7 +56,7 @@ const formsValidationConfig = {
       buttonElement.classList.add(object.inactiveButtonClass);
       buttonElement.setAttribute('disabled', true);
     }
-    export {buttonDisabled};
+    export function buttonDisabled() {...}
   };
   
   function setEventListeners(formElement, object) {
