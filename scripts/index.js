@@ -78,14 +78,13 @@ function createCard(name, link) {
       evt.target.closest('.element__description').remove();
     });
 
-  cardImage
     cardImage.addEventListener('click', () => openFoto(name, link)); 
     return cardsElement;
-}
+  }
 
 function addCard(newCard) {
   initialCardsElement.prepend(newCard);
-}
+};
 
 initialCards.forEach((item) => {
   const newCard = createCard(item.name, item.link);
@@ -99,8 +98,7 @@ function handleCardFormSubmit(evt) {
   const newCard = createCard(name, link)
   addCard(newCard);
   closePopup(popupAdd);
-  popupAddSave.setAttribute('disabled', true);
-  popupAddSave.classList.add(formsValidationConfig.inactiveButtonClass);
+  popupAddSave.classList.add(formsValidationConfig.inactiveButtonClass, toggleButtonState.buttonDisabled);
   popupAddCard.reset(evt.target);
 }
 
