@@ -51,13 +51,13 @@ const formsValidationConfig = {
     } else { 
       buttonElement.classList.remove(object.inactiveButtonClass); 
       buttonElement.removeAttribute('disabled', true);  
-    } 
-  export {buttonDisabled}
+    }
     function buttonDisabled() {
       buttonElement.classList.add(object.inactiveButtonClass);
       buttonElement.setAttribute('disabled', true);
   }
   };
+export {buttonDisabled};
   
   function setEventListeners(formElement, object) {
     const inputList = Array.from(
