@@ -47,16 +47,15 @@ const formsValidationConfig = {
   
   const toggleButtonState = (inputList, buttonElement, object) => { 
     if (hasInvalidInput(inputList)) { 
-      buttonDisabled(); 
+      buttonDisabled(buttonElement, object); 
     } else { 
       buttonElement.classList.remove(object.inactiveButtonClass); 
-      buttonElement.removeAttribute('disabled', true);  
+      buttonElement.disabled = false;   
     }
-    function buttonDisabled() {
-      buttonElement.classList.add(object.inactiveButtonClass);
-      buttonElement.setAttribute('disabled', true);
-  }
-  };
+  const buttonDisabled = (buttonElement, object) => {
+  buttonElement.classList.add(formsValidationConfig.inactiveButtonClass);
+  buttonElement.disabled = true;
+    }
   
   function setEventListeners(formElement, object) {
     const inputList = Array.from(
