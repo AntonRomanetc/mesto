@@ -57,7 +57,6 @@ const formsValidationConfig = {
       buttonElement.setAttribute('disabled', true);
   }
   };
-export {buttonDisabled};
   
   function setEventListeners(formElement, object) {
     const inputList = Array.from(
