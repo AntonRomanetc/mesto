@@ -55,9 +55,9 @@ const toggleButtonState = (inputList, buttonElement, object) => {
 };
 
 const buttonDisabled = (buttonElement, object) => {
-  buttonElement.classList.add(formsValidationConfig.inactiveButtonClass);
+  buttonElement.classList.add(object.inactiveButtonClass);
   buttonElement.disabled = true;
-}
+};
 
 function setEventListeners(formElement, object) {
   const inputList = Array.from(
