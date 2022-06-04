@@ -31,8 +31,8 @@ const popupAddCardValidator = new FormValidator(formsValidationConfig, popupAddC
 const openProfilePopup = () => { 
   formNameInput.value = profileName.textContent; 
   formDescriptionInput.value = profileDescription.textContent; 
-  formProfileEditValidator.toggleSubmitButtonState; 
-  formProfileEditValidator.resetValidation; 
+  formProfileEditValidator.toggleSubmitButtonState(); 
+  formProfileEditValidator.resetValidation(); 
   openPopup(popupProfile); 
 }; 
 
@@ -44,10 +44,10 @@ const handleformProfileEditSubmit = (evt) => {
 }; 
 
 const openCardPopup = () => { 
-  popupAddCardValidator.toggleSubmitButtonState; 
-  popupAddCardValidator.resetValidation; 
-  openPopup(popupAdd); 
+  popupAddCardValidator.toggleSubmitButtonState(); 
+  popupAddCardValidator.resetValidation();
   popupAddCard.reset(); 
+  openPopup(popupAdd); 
 }; 
 
 const handleCardSubmit = (evt) => { 
@@ -56,10 +56,10 @@ const handleCardSubmit = (evt) => {
     name: formTitleInput.value, 
     link: formLinkInput.value, 
     openPhoto: openPhoto, 
-  } 
+  }
   formTitleInput.value = '';
   formLinkInput.value = '';
-  addCard(elementList); 
+  addCard(elementList);
   closePopup(popupAdd); 
 }; 
 
