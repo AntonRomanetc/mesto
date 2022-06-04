@@ -11,7 +11,8 @@ export default class Card {
     };
   
     _deleteCard() {
-      this._elementList.remove()
+      this._elementList.remove();
+      this._element = null;
     };
   
     _setEventListeners() {
