@@ -1,7 +1,7 @@
 import FormValidator from "./FormValidator.js";
 import Card  from "./Card.js";
 import { initialCards } from "./initialCards.js"
-import { config } from "./FormValidator.js";
+import { formsValidationConfig } from "./FormValidator.js";
 
 const buttonProfileEdit = document.querySelector('.profile__edit-button');
 const popupForms = document.querySelectorAll('.popup');
@@ -23,14 +23,14 @@ const cardFoto = document.querySelector('.card-popup');
 const popupCardImage = document.querySelector('.card-popup__foto');
 const popupCardTitle = document.querySelector('.card-popup__caption');
 
-const formProfileEditValidator = new FormValidator(config, formProfileEdit);
-const popupAddCardValidator = new FormValidator(config, popupAddCard);
+const formProfileEditValidator = new FormValidator(formsValidationConfig, formProfileEdit);
+const popupAddCardValidator = new FormValidator(formsValidationConfig, popupAddCard);
 
 const openProfilePopup = () => {
   formNameInput.value = profileName.textContent;
   formDescriptionInput.value = profileDescription.textContent;
-  formProfileEditValidator.toggleSubmitButtonState(formProfileEdit, config);
-  formProfileEditValidator.resetValidation(formProfileEdit, config);
+  formProfileEditValidator.toggleSubmitButtonState(formProfileEdit, formsValidationConfig);
+  formProfileEditValidator.resetValidation(formProfileEdit, formsValidationConfig);
   openPopup(popupProfile);
 };
 
@@ -42,8 +42,8 @@ const handleformProfileEditSubmit = (evt) => {
 };
 
 const openCardPopup = () => {
-  popupAddCardValidator.toggleSubmitButtonState(popupAddCard, config);
-  popupAddCardValidator.resetValidation(popupAddCard, config);
+  popupAddCardValidator.toggleSubmitButtonState(popupAddCard, formsValidationConfig);
+  popupAddCardValidator.resetValidation(popupAddCard, formsValidationConfig);
   openPopup(popupAdd);
   popupAddCard.reset();
 };
