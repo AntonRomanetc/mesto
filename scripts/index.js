@@ -31,8 +31,8 @@ const popupAddCardValidator = new FormValidator(formsValidationConfig, popupAddC
 const openProfilePopup = () => { 
   formNameInput.value = profileName.textContent; 
   formDescriptionInput.value = profileDescription.textContent; 
-  formProfileEditValidator.toggleSubmitButtonState(formProfileEdit, formsValidationConfig); 
-  formProfileEditValidator.resetValidation(formProfileEdit, formsValidationConfig); 
+  formProfileEditValidator.toggleSubmitButtonState; 
+  formProfileEditValidator.resetValidation; 
   openPopup(popupProfile); 
 }; 
 
@@ -44,8 +44,8 @@ const handleformProfileEditSubmit = (evt) => {
 }; 
 
 const openCardPopup = () => { 
-  popupAddCardValidator.toggleSubmitButtonState(popupAddCard, formsValidationConfig); 
-  popupAddCardValidator.resetValidation(popupAddCard, formsValidationConfig); 
+  popupAddCardValidator.toggleSubmitButtonState; 
+  popupAddCardValidator.resetValidation; 
   openPopup(popupAdd); 
   popupAddCard.reset(); 
 }; 
