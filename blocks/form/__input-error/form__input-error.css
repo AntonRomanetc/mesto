@@ -1,4 +1,4 @@
-.popup__text-error {
+.form__input-error {
     transition: .3s;
     opacity: 0;
     font-weight: 400;
