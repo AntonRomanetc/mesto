@@ -1,4 +1,4 @@
-//import '../pages/index.css';
+import '../pages/index.css';
 
 import {
   profileEditButton,
@@ -22,7 +22,7 @@ import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
-import { initialCards } from '../Utils/initial-cards.js';
+import { initialCards } from '../utils/initial-cards.js';
 
 const popupPreview = new PopupWithImage(popupPreviewSelector);
 const popupEdit = new PopupWithForm(popupEditSelector, handleSubmitEditPopup);
