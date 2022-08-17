@@ -7,14 +7,14 @@
 }
 
 @media screen and (max-width: 550px) {
-    .form__input-error_active {
-      width: 238px;
-      margin-left: 22px;
-    }
+  .form__input-error_active {
+    width: 238px;
+    margin-left: 22px;
   }
+}
     
-  @media screen and (max-width: 550px) {
-    .form__input-error_active {
-      margin-left: 22px;
-    }
+@media screen and (max-width: 550px) {
+  .form__input-error_active {
+    margin-left: 22px;
   }
+}
