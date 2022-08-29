@@ -23,7 +23,7 @@ export const popupPreviewTitleSelector = '.popup__card-caption';
 export const popupPreviewUrlSelector = '.popup__card-foto';
   
 export const cardsContainer = '.element';
-export const cardElementTemplate = '#element-template';
+export const elementTemplate = '#element-template';
   
 export const userInfoInputsSelector = {
   nameSelector: '.profile__name', 

@@ -17,7 +17,7 @@ import {
   popupDeleteSelector,
   popupEditAvatarSelector,
   cardsContainer,
-  cardElementTemplate,
+  elementTemplate,
   userInfoInputsSelector,
 } from '../utils/constants.js';
 
@@ -56,7 +56,7 @@ formAddValidation.enableValidation();
 formAvatareditValidation.enableValidation();
 
 function card(cardItem) {
-  const card = new Card(cardItem, userInfo._userId, cardElementTemplate, handleCardClick, handleDeleteClick, handleSetLike, handleDeleteLike);
+  const card = new Card(cardItem, userInfo._userId, elementTemplate, handleCardClick, handleDeleteClick, handleSetLike, handleDeleteLike);
   return card;
 }
 
@@ -135,14 +135,14 @@ function handleSubmitAvatarEditPopup(user) {
   }); 
 }
 
-function handleDeleteClick(cardElement, id) {
-  popupDelete.handleOpenPopup(cardElement, id);
+function handleDeleteClick(element, id) {
+  popupDelete.handleOpenPopup(element, id);
 }
 
-function handleSubmitDeletePopup(cardElement, id) {
+function handleSubmitDeletePopup(element, id) {
   api.deleteCard(id)
   .then(() => {
-    card(cardElement).handleCardDelete(cardElement);
+    card(element).handleCardDelete(element);
     popupDelete.handleClosePopup();
   })
   .catch((err) => {
@@ -154,10 +154,10 @@ function handleCardClick(imageName, imageLink) {
   popupPreview.handleOpenPopup(imageName, imageLink);
 }
 
-function handleSetLike(evt, cardElement, cardId) {
+function handleSetLike(evt, element, cardId) {
   api.setLike(cardId)
   .then((res) => {
-    card(cardElement).setLike(evt);
+    card(element).setLike(evt);
     card(res).generateCard();
   })
   .catch((err) => {
@@ -165,10 +165,10 @@ function handleSetLike(evt, cardElement, cardId) {
   });
 }
 
-function handleDeleteLike(evt, cardElement, cardId) {
+function handleDeleteLike(evt, element, cardId) {
   api.deleteLike(cardId)
   .then((res) => {
-    card(cardElement).deleteLike(evt);
+    card(element).deleteLike(evt);
     card(res).generateCard();
   })
   .catch((err) => {

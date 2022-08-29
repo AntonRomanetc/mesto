@@ -54,9 +54,9 @@ export class Card {
     this._countLike.textContent = this._likes.length;
   }
 
-  handleCardDelete(cardElement) {
-    cardElement.remove();
-    cardElement = null;
+  handleCardDelete(element) {
+    element.remove();
+    element = null;
   }
 
   _setEventListeners = () => {
