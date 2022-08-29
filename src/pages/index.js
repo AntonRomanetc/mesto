@@ -23,7 +23,7 @@ import {
 
 import { Api } from '../components/Api.js'
 import { Card } from '../components/Card.js';
-import { formConfig } from '../utils/formConfig.js';
+import { formsValidationConfig } from '../utils/formsValidationConfig.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
@@ -47,9 +47,9 @@ const api = new Api({
   }
 }); 
 
-const formEditValidation = new FormValidator(formConfig, formEdit);
-const formAddValidation = new FormValidator(formConfig, formAdd);
-const formAvatareditValidation = new FormValidator(formConfig, formEditAvatar);
+const formEditValidation = new FormValidator(formsValidationConfig, formEdit);
+const formAddValidation = new FormValidator(formsValidationConfig, formAdd);
+const formAvatareditValidation = new FormValidator(formsValidationConfig, formEditAvatar);
 
 formEditValidation.enableValidation();
 formAddValidation.enableValidation();

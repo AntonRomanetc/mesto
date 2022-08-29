@@ -1,4 +1,4 @@
-export const formConfig = {
+export const formsValidationConfig = {
   formSelector: '.form',
   inputSelector: '.form__input',
   submitButtonSelector: '.form__submit-button',
