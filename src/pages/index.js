@@ -17,13 +17,13 @@ import {
   popupDeleteSelector,
   popupEditAvatarSelector,
   cardsContainer,
-  elementTemplate,
+  cardElementTemplate,
   userInfoInputsSelector,
 } from '../utils/constants.js';
 
 import { Api } from '../components/Api.js'
 import { Card } from '../components/Card.js';
-import { formsValidationConfig } from '../utils/formsValidationConfig.js';
+import { formConfig } from '../utils/formConfig.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
@@ -40,23 +40,23 @@ const popupAvatarEdit = new PopupWithForm(popupEditAvatarSelector, handleSubmitA
 const userInfo = new UserInfo(userInfoInputsSelector);
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-48',
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-51',
   headers: {
-    authorization: '898681ec-22eb-45c1-9316-89a4888b48cb',
+    authorization: '79a1b180-6e8c-46f3-bead-56335d5b9de5',
     'Content-Type': 'application/json'
   }
 }); 
 
-const formEditValidation = new FormValidator(formsValidationConfig, formEdit);
-const formAddValidation = new FormValidator(formsValidationConfig, formAdd);
-const formAvatareditValidation = new FormValidator(formsValidationConfig, formEditAvatar);
+const formEditValidation = new FormValidator(formConfig, formEdit);
+const formAddValidation = new FormValidator(formConfig, formAdd);
+const formAvatareditValidation = new FormValidator(formConfig, formEditAvatar);
 
 formEditValidation.enableValidation();
 formAddValidation.enableValidation();
 formAvatareditValidation.enableValidation();
 
 function card(cardItem) {
-  const card = new Card(cardItem, userInfo._userId, elementTemplate, handleCardClick, handleDeleteClick, handleSetLike, handleDeleteLike);
+  const card = new Card(cardItem, userInfo._userId, cardElementTemplate, handleCardClick, handleDeleteClick, handleSetLike, handleDeleteLike);
   return card;
 }
 
@@ -85,8 +85,8 @@ function handleSubmitAddPopup(cardItem) {
   popupAdd.renderLoading(true, 'Создать');
 
   api.setNewCard(cardItem)
-  .then(() => {
-    cardsList.addItem(createCard(cardItem));
+  .then((res) => {
+    cardsList.addItem(createCard(res));
     popupAdd.handleClosePopup();
   })
   .catch((err) => {
@@ -107,8 +107,8 @@ function handleSubmitEditPopup(user) {
   popupEdit.renderLoading(true, 'Сохранить');
 
   api.setUserInfo(user)
-  .then(() => {
-    userInfo.setUserInfo(user);
+  .then((res) => {
+    userInfo.setUserInfo(res);
     popupEdit.handleClosePopup();
   })
   .catch((err) => {
@@ -123,8 +123,8 @@ function handleSubmitAvatarEditPopup(user) {
   popupAvatarEdit.renderLoading(true, 'Сохранить');
 
   api.setAvatar(user)
-  .then(() => {
-    userInfo.setAvatar(user);
+  .then((res) => {
+    userInfo.setAvatar(res);
     popupAvatarEdit.handleClosePopup();
   })
   .catch((err) => {
@@ -135,14 +135,14 @@ function handleSubmitAvatarEditPopup(user) {
   }); 
 }
 
-function handleDeleteClick(element, id) {
-  popupDelete.handleOpenPopup(element, id);
+function handleDeleteClick(cardElement, id) {
+  popupDelete.handleOpenPopup(cardElement, id);
 }
 
-function handleSubmitDeletePopup(element, id) {
+function handleSubmitDeletePopup(cardElement, id) {
   api.deleteCard(id)
   .then(() => {
-    card(element).handleCardDelete(element);
+    card(cardElement).handleCardDelete(cardElement);
     popupDelete.handleClosePopup();
   })
   .catch((err) => {
@@ -154,22 +154,23 @@ function handleCardClick(imageName, imageLink) {
   popupPreview.handleOpenPopup(imageName, imageLink);
 }
 
-function handleSetLike(evt, element, cardId) {
+function handleSetLike(evt, cardElementLikes, cardId) {
+  
   api.setLike(cardId)
   .then((res) => {
-    card(element).setLike(evt);
-    card(res).generateCard();
+    card(res).countLikes(cardElementLikes, res.likes);
+    card(res).setLike(evt);
   })
   .catch((err) => {
     alert(`${err} Карточка не лайкнулась`)
   });
 }
 
-function handleDeleteLike(evt, element, cardId) {
+function handleDeleteLike(evt, cardElementLikes, cardId) {
   api.deleteLike(cardId)
   .then((res) => {
-    card(element).deleteLike(evt);
-    card(res).generateCard();
+    card(res).countLikes(cardElementLikes, res.likes);
+    card(res).deleteLike(evt);
   })
   .catch((err) => {
     alert(`${err} Лайк не удалился`)

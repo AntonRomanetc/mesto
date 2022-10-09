@@ -16,47 +16,47 @@ export class Card {
   _getTemplate() {
     return document
     .querySelector(this._templateSelector).content
-    .querySelector('.element__description')
+    .querySelector('.cardElement')
     .cloneNode(true);
   }
 
   _hideDeleteButton () {
     if (this._owner._id !== this._userId) {
-      this._buttonDelete.classList.add('element__delete_hidden');
+      this._buttonDelete.classList.add('cardElement__delete-button_hidden');
     }
   }
 
   setLike(evt) {
-    evt.target.classList.add('element_active_like');
+    evt.target.classList.add('cardElement__like-button_active');
   }
-
+  
   deleteLike(evt) {
-    evt.target.classList.remove('element_active_like');
+    evt.target.classList.remove('cardElement__like-button_active');
   }
 
   _handleToggleLike(evt) { 
-    if (evt.target.classList.contains('element_active_like')) {
-       this._handleDeleteLike(evt, this._element, this._data._id);
+    if (evt.target.classList.contains('cardElement__like-button_active')) {
+      this._handleDeleteLike(evt, this._countLike, this._data._id);
     } else {
-      this._handleSetLike(evt, this._element, this._data._id);
+      this._handleSetLike(evt, this._countLike, this._data._id);
     }
   }
 
   _setPreLike() {
     this._likes.forEach(item => {
       if (item._id === this._userId) {
-        this._buttonLike.classList.add('element_active_like');
+        this._buttonLike.classList.add('cardElement__like-button_active');
       }
     })
   }
 
-  _countLikes() {
-    this._countLike.textContent = this._likes.length;
+  countLikes(cardElementLikes, likes) {
+    cardElementLikes.textContent = likes.length; 
   }
 
-  handleCardDelete(element) {
-    element.remove();
-    element = null;
+  handleCardDelete(cardElement) {
+    cardElement.remove();
+    cardElement = null;
   }
 
   _setEventListeners = () => {
@@ -75,20 +75,22 @@ export class Card {
 
   generateCard = () => {
     this._element = this._getTemplate();
-    this._buttonDelete = this._element.querySelector('.element__delete');
-    this._buttonLike = this._element.querySelector('.element__like');
-    this._countLike = this._element.querySelector('.element__likes');
-    this._image = this._element.querySelector('.element__image');
-    this._title = this._element.querySelector('.element__title');
+    this._buttonDelete = this._element.querySelector('.cardElement__delete-button');
+    this._buttonLike = this._element.querySelector('.cardElement__like-button');
+    this._countLike = this._element.querySelector('.cardElement__likes');
+    this._image = this._element.querySelector('.cardElement__image');
+    this._title = this._element.querySelector('.cardElement__title');
     this._title.textContent = this._name;
     this._image.src = this._link;
     this._image.alt = this._name;
-    if (this._likes) {
-      this._countLikes();
-    }
+ 
     if (this._owner) { 
       this._hideDeleteButton();
       this._setPreLike();
+    }
+
+    if (this._likes) {
+      this.countLikes(this._countLike, this._likes);
     }
     this._setEventListeners();
     return this._element;

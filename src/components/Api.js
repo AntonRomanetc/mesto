@@ -8,6 +8,7 @@ export class Api {
     if (res.ok) {
       return res.json();
     }
+
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
@@ -54,12 +55,11 @@ export class Api {
       headers: this.headers,
       body: JSON.stringify({
         name: card.name,
-        link: card.link,
+        link: card.link
       })
     })
     .then(this._checkResponse)
   }
-
 
   deleteCard(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}`, {
@@ -70,7 +70,7 @@ export class Api {
   }
 
   setLike(cardId) {
-    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this.headers
     })  
@@ -78,9 +78,9 @@ export class Api {
   }
 
   deleteLike(cardId) {
-    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
-      headers: this.headers
+      headers: this.headers,
     })
     .then(this._checkResponse)
   }

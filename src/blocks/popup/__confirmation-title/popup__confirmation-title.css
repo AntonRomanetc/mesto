@@ -4,10 +4,10 @@
     font-size: 24px;
     line-height: 29px;
     color: #000000;
-    margin: 34px 36px 38px;
+    margin: 0 0 13px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 767px) {
     .popup__confirmation-title {
         font-size: 18px;
         line-height: 22px;

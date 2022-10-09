@@ -1,18 +1,12 @@
 .header__logo {
-    margin: 0;
-    padding-top: 74px;
-    background-image: url(../../../images/header-logo.svg);
-    background-repeat: no-repeat;
-    background-size: 142px;
-    background-color: transparent;
-    background-position: left top;
-    display: flex;
+    width: 142px;
+    height: 33px;
 }
 
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 767px) {
     .header__logo {
-        background-size: 103px;
-        padding-top: 56px;
-        background-position: 27px top;
+        width: calc((100vw - 320px)/(767 - 320)*(142 - 103.74) + 103.74px);
+        height: calc((100vw - 320px)/(767 - 320)*(33 - 24.4) + 24.4px);
+        margin-left: 27px;
     }
 }
