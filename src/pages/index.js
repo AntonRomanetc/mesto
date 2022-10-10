@@ -55,13 +55,32 @@ formEditValidation.enableValidation();
 formAddValidation.enableValidation();
 formAvatareditValidation.enableValidation();
 
-function card(cardItem) {
-  const card = new Card(cardItem, userInfo._userId, cardElementTemplate, handleCardClick, handleDeleteClick, handleSetLike, handleDeleteLike);
-  return card;
-}
-
 function createCard(cardItem) {
-  return card(cardItem).generateCard();
+  const card = new Card(
+    cardItem, userInfo._userId, cardElementTemplate, 
+    handleCardClick, handleDeleteClick,
+    function handleSetLike(evt, cardElementLikes, cardId) {
+  api.setLike(cardId)
+  .then((res) => {
+    card.setLike(evt);
+    card.countLikes(cardElementLikes, res.likes);
+  })
+  .catch((err) => {
+    alert(`${err} Карточка не лайкнулась`)
+  });
+},
+
+function handleDeleteLike(evt, cardElementLikes, cardId) {
+  api.deleteLike(cardId)
+  .then((res) => {
+    card.countLikes(cardElementLikes, res.likes);
+    card.deleteLike(evt);
+  })
+  .catch((err) => {
+    alert(`${err} Лайк не удалился`)
+  });
+})
+  return card.generateCard();
 }
 
 const cardsList = new Section({
@@ -142,7 +161,8 @@ function handleDeleteClick(cardElement, id) {
 function handleSubmitDeletePopup(cardElement, id) {
   api.deleteCard(id)
   .then(() => {
-    card(cardElement).handleCardDelete(cardElement);
+    cardElement.remove()
+    cardElement = null
     popupDelete.handleClosePopup();
   })
   .catch((err) => {
@@ -152,29 +172,6 @@ function handleSubmitDeletePopup(cardElement, id) {
 
 function handleCardClick(imageName, imageLink) {
   popupPreview.handleOpenPopup(imageName, imageLink);
-}
-
-function handleSetLike(evt, cardElementLikes, cardId) {
-  
-  api.setLike(cardId)
-  .then((res) => {
-    card(res).countLikes(cardElementLikes, res.likes);
-    card(res).setLike(evt);
-  })
-  .catch((err) => {
-    alert(`${err} Карточка не лайкнулась`)
-  });
-}
-
-function handleDeleteLike(evt, cardElementLikes, cardId) {
-  api.deleteLike(cardId)
-  .then((res) => {
-    card(res).countLikes(cardElementLikes, res.likes);
-    card(res).deleteLike(evt);
-  })
-  .catch((err) => {
-    alert(`${err} Лайк не удалился`)
-  });
 }
 
 popupPreview.setEventListeners();
